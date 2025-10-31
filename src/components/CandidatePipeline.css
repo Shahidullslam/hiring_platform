@@ -1,0 +1,260 @@
+
+
+.candidate-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  height: calc(100vh - 3rem);
+  background: #f8f9fa;
+}
+
+.pipeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+}
+
+.pipeline-searchbar {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-info {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  color: #666;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  background: #f0f2f5;
+  pointer-events: none;
+}
+
+.pipeline-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 6rem;
+  font-size: 0.95rem;
+  border: 1.5px solid #d0d7de;
+  border-radius: 8px;
+  background: #f6f8fa;
+  transition: all 0.2s ease;
+}
+
+.pipeline-search-input:focus {
+  outline: none;
+  border-color: #0b63d6;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(11 99 214 / 10%);
+}
+
+.pipeline-job-select {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pipeline-job-select label {
+  font-weight: 500;
+  color: #444;
+}
+
+.pipeline-job-select select {
+  min-width: 200px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1.5px solid #d0d7de;
+  border-radius: 8px;
+  background: #f6f8fa;
+  transition: all 0.2s ease;
+}
+
+.pipeline-job-select select:focus {
+  outline: none;
+  border-color: #0b63d6;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(11 99 214 / 10%);
+}
+
+.pipeline-board {
+  flex: 1;
+  background: #f7fbff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #236ed31a, 0 2px 7px #85beed40;
+  padding: 1.7rem 0.5rem 1.3rem 0.5rem;
+  min-height: 420px;
+  height: calc(100vh - 11rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.pipeline-columns {
+  display: flex;
+  gap: 1.4rem;
+  height: 100%;
+  min-width: min-content;
+  padding-bottom: 1rem;
+}
+.pipeline-column {
+  flex: 0 0 322px;
+  width: 322px;
+  background: linear-gradient(120deg,#ffffff 70%,#e8f2f9 100%);
+  border-radius: 14px;
+  border: 1.5px solid #e2eaf5;
+  box-shadow: 0 2px 14px #1867d212;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  height: 100%;
+  margin-bottom: 0.5rem;
+  transition: border 0.17s, box-shadow 0.16s;
+}
+.pipeline-column:hover,
+.pipeline-column:focus-within {
+  box-shadow: 0 8px 36px #408ee830, 0 2px 7px #1a2d5412;
+  border-color: #97c5ee;
+}
+.column-header {
+  padding: 1.15rem 1.15rem 1rem 1.15rem;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #185ec7;
+  background: #f6f9fc;
+  border-bottom: 1.5px solid #e2eaf5;
+  border-radius: 14px 14px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #397ad4;
+  background: #eaf4fd;
+  padding: 0.3rem 0.9rem;
+  border-radius: 22px;
+  margin-left: 0.5rem;
+}
+.column-body {
+  padding: 1.1rem 1.1rem 1rem 1.1rem;
+  flex: 1;
+  overflow: auto;
+  height: auto;
+  overscroll-behavior: contain;
+  border-radius: 0 0 14px 14px;
+}
+.pipeline-column .candidate-card {
+  margin-bottom: 1rem;
+  transition: transform 0.14s, box-shadow 0.14s;
+  box-shadow: 0 2px 10px #186bc81a;
+}
+.pipeline-column .candidate-card:hover {
+  border-color: #6cb7eb;
+  transform: translateY(-2px) scale(1.012);
+  box-shadow: 0 8px 16px #186bc82a;
+}
+@media (width <= 1050px) {
+  .pipeline-board { padding: 1rem 0; }
+  .pipeline-columns { gap: .7rem; }
+  .pipeline-column { width: 260px; min-width: 240px; }
+}
+@media (width <= 720px) {
+  .pipeline-columns { gap: 0.5rem; }
+  .pipeline-board { padding: 0.3rem; min-height: 240px; }
+}
+
+/* Customize scrollbar appearance */
+.pipeline-board::-webkit-scrollbar {
+  height: 8px; /* Horizontal scrollbar height */
+}
+
+.pipeline-board::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.pipeline-board::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.pipeline-board::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.pipeline-loading {
+  width: 100%;
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.column-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.column-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.column-body::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.column-body::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+/* Optimize drag and drop performance */
+.pipeline-column > * {
+  transform: translate3d(0, 0, 0);
+}
+
+.pipeline-column [tabindex="0"] {
+  outline: none;
+}
+
+.pipeline-column [tabindex="0"]:focus {
+  outline: none;
+}
+
+.pipeline-column [tabindex="0"].focused .candidate-card {
+  box-shadow: 0 0 0 2px #0b63d6;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #666;
+  font-size: 0.95rem;
+  background: #fff;
+  border: 1.5px dashed #e0e0e0;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.loading-more {
+  opacity: 0.7;
+  margin: 0.5rem 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.5; }
+}
